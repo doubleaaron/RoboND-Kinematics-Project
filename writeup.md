@@ -15,11 +15,7 @@
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
 
-To run Forward Kinematics I did this:
-
-robond@udacity:~ cd ~/catkin_ws
-robond@udacity:~/catkin_ws$source devel/setup.bash
-robond@udacity:~/catkin_ws/src/RoboND-Kinematics-Project/kuka_arm/launch$ roslaunch forward_kinematics.launch
+To run Forward Kinematics I switched to ~/catkin_ws directory, sourced devel/setup.bash and ran roslaunch forward_kinematics.launch
 
 Launched /catkin_ws/src/RoboND-Kinematics-Project/kuka_arm/urdf/kr210.urdf.xacro to perform kinematic analysis and derive Denavit Hartenberg parameters (JJ Craig method).
 
