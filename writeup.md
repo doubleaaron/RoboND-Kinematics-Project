@@ -4,7 +4,7 @@
 
 [//]: # (Image References)
 
-[image1]: ./misc_images/misc1.png
+[image1]: ./misc_images/launch_kuka_urdf.jpg
 [image2]: ./misc_images/misc3.png
 [image3]: ./misc_images/misc2.png
 
@@ -15,7 +15,14 @@
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
 
-Here is an example of how to include an image in your writeup.
+To run Forward Kinematics I did this:
+
+robond@udacity:~$ cd ~/catkin_ws
+robond@udacity:~/catkin_ws$
+robond@udacity:~/catkin_ws$source devel/setup.bash
+robond@udacity:~/catkin_ws/src/RoboND-Kinematics-Project/kuka_arm/launch$ roslaunch forward_kinematics.launch
+
+Launched /catkin_ws/src/RoboND-Kinematics-Project/kuka_arm/urdf/kr210.urdf.xacro to perform kinematic analysis and derive Denavit Hartenberg parameters (JJ Craig method).
 
 ![alt text][image1]
 
