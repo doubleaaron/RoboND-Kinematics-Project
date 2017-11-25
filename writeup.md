@@ -17,7 +17,7 @@
 
 To run Forward Kinematics I did this:
 
-robond@udacity:~$ cd ~/catkin_ws
+robond@udacity:~ cd ~/catkin_ws
 robond@udacity:~/catkin_ws$source devel/setup.bash
 robond@udacity:~/catkin_ws/src/RoboND-Kinematics-Project/kuka_arm/launch$ roslaunch forward_kinematics.launch
 
