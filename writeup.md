@@ -25,6 +25,30 @@ We need to sketch out the KUKA Arm in it's zero configuration.
 
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
+The isntructions for DH parameter assignment process for open kinematic chains with n degrees of freedom (i.e., joints) is summarized as:
+
+1. Label all joints from {1, 2, … , n}.
+2. Label all links from {0, 1, …, n} starting with the fixed base link as 0.
+3. Draw lines through all joints, defining the joint axes.
+4. Assign the Z-axis of each frame to point along its joint axis.
+5. Identify the common normal between each frame ​Z​^​i−1 and frame Z​^​i.
+
+6. The endpoints of "intermediate links" (i.e., not the base link or the end effector) are associated with two joint axes, {i} and {i+1}. For i from 1 to n-1, assign the X^​i
+to be …
+
+  a. For skew axes, along the normal between Z^​i and Z​^​i+1 and pointing from {i} to {i+1}.
+  b. For intersecting axes, normal to the plane containing ​Z^​i and Z^​i+1.
+  c. For parallel or coincident axes, the assignment is arbitrary; look for ways to make other DH parameters equal to zero.
+
+7. For the base link, always choose frame {0} to be coincident with frame {1} when the first joint variable (θ​1 or d1) is equal to zero. This will guarantee that α0 = a​0 = 0, and, if joint 1 is a revolute, d​1 = 0. If joint 1 is prismatic, then θ​1 = 0.
+
+8. For the end effector frame, if joint n is revolute, choose Xn to be in the direction of X​n−1 when θ​n = 0 and the origin of frame {n} such that d​n = 0.
+
+Insert Table Drawn out here:
+
+
+DH Parameter Table:
+
 Links | alpha(i-1) | a(i-1) | d(i-1) | theta(i)
 --- | --- | --- | --- | ---
 0->1 | 0 | 0 | 0.75 | q1
