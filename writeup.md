@@ -42,7 +42,7 @@ a(i-1) | Link length | Distance from z(i-1) axis to z(i) axis measured along the
 d(i) | Link offset | Distance from x(i-1) axis to x(i) axis measured along the z(i) axis
 theta(i) | Joint variable | Angle from x(i-1) axis to x(i) axis measured along the z(i) axis
   
->>> In joint 2, it has a constant offset -90 degree between x(1) and x(2). 
+>>> In joint 2, there is an offset of -90 degrees between x(1) and x(2). 
 
 
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
