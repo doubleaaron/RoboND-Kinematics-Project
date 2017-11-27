@@ -8,6 +8,7 @@
 [image2]: ./misc_images/denavit_hartenberg_sketch.jpg
 [image3]: ./misc_images/wc_equation.jpg
 [image4]: ./misc_images/euler_equation.jpg
+[image5]: ./misc_images/wc_homogeneous_matrix.jpg
 
 ---
 
@@ -172,6 +173,8 @@ T0_G = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_G
 Step 1: Complete the DH Table.
 
 Step 2: Find the location of the WC relative to the base frame.
+
+![alt text][image5]:
 
 ![alt text][image3]
 
