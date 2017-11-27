@@ -42,7 +42,7 @@ to be …
 
 8. For the end effector frame, if joint n is revolute, choose Xn to be in the direction of X​n−1 when θ​n = 0 and the origin of frame {n} such that d​n = 0.
 
-![alt text][image2]
+![alt text][image2] Sketch
 
 DH Parameter Table:
 
