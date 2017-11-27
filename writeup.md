@@ -35,7 +35,9 @@ The instructions for DH parameter assignment process for open kinematic chains w
 to be...
 
     a. For skew axes, along the normal between Z^​i and Z​^​i+1 and pointing from {i} to {i+1}.
+    
     b. For intersecting axes, normal to the plane containing ​Z^​i and Z^​i+1.
+    
     c. For parallel or coincident axes, the assignment is arbitrary; look for ways to make other DH parameters equal to zero.
 
 7. For the base link, always choose frame {0} to be coincident with frame {1} when the first joint variable (θ​1 or d1) is equal to zero. This will guarantee that α0 = a​0 = 0, and, if joint 1 is a revolute, d​1 = 0. If joint 1 is prismatic, then θ​1 = 0.
