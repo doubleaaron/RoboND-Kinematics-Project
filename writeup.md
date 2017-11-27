@@ -33,6 +33,7 @@ The instructions for DH parameter assignment process for open kinematic chains w
 
 6. The endpoints of "intermediate links" (i.e., not the base link or the end effector) are associated with two joint axes, {i} and {i+1}. For i from 1 to n-1, assign the X^​i
 to be...
+
     a. For skew axes, along the normal between Z^​i and Z​^​i+1 and pointing from {i} to {i+1}.
     b. For intersecting axes, normal to the plane containing ​Z^​i and Z^​i+1.
     c. For parallel or coincident axes, the assignment is arbitrary; look for ways to make other DH parameters equal to zero.
