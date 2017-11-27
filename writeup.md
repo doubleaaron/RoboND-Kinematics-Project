@@ -6,7 +6,7 @@
 
 [image1]: ./misc_images/launch_kuka_urdf.jpg
 [image2]: ./misc_images/denavit_hartenberg_sketch.jpg
-[image3]: ./misc_images/wc_equation.png
+[image3]: ./misc_images/wc_equation.jpg
 
 ---
 
