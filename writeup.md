@@ -70,7 +70,7 @@ theta(i) | Joint variable | Angle from x(i-1) axis to x(i) axis measured along t
 
 And here's where you can draw out and show your math for the derivation of your theta angles. 
 
-![alt text][image2]
+![alt text][image3]
 
 ### Project Implementation
 
