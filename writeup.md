@@ -117,8 +117,12 @@ T6 or Gripper
 0  1  0    0  
 0  0  1  0.303
 0  0  0    1
-```
 
+Homogeneous Tranformation Matrix:
+T0_G = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_G
+T_total = T0_G * R_corr
+```
+Python, Sympy, Defining Functions, etc.
 ```python
 # Create symbols
     q1, q2, q3, q4, q5, q6, q7 = symbols('q1:8') #joint variables, thetas
