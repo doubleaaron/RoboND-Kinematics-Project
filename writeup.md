@@ -91,6 +91,30 @@ And here's where you can draw out and show your math for the derivation of your 
                 alpha6:     0, a6:      0, d7: 0.303, q7:         0}
 ```
 
+```python
+# Define Modified DH Transformation matrix
+	def create_TM(alpha, a, d, q):
+    T = Matrix([[            cos(q),           -sin(q),           0,             a],   
+                [ cos(alpha)*sin(q), cos(alpha)*cos(q), -sin(alpha), -sin(alpha)*d],
+                [ sin(alpha)*sin(q), sin(alpha)*cos(q),  cos(alpha),  cos(alpha)*d],
+                [                 0,                 0,           0,             1]])
+    return T
+
+	# Create individual transformation matrices
+	
+
+    T0_1 = create_TM(alpha0, a0, d1, q1).subs(dh_table)
+    T1_2 = create_TM(alpha1, a1, d2, q2).subs(dh_table)
+    T2_3 = create_TM(alpha2, a2, d3, q3).subs(dh_table)
+    T3_4 = create_TM(alpha3, a3, d4, q4).subs(dh_table)
+    T4_5 = create_TM(alpha4, a4, d5, q5).subs(dh_table)
+    T5_6 = create_TM(alpha5, a5, d6, q6).subs(dh_table)
+    T6_G = create_TM(alpha6, a6, d7, q7).subs(dh_table)
+
+
+    T0_G = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_G
+```
+
 ### Project Implementation
 
 #### 1. Fill in the `IK_server.py` file with properly commented python code for calculating Inverse Kinematics based on previously performed Kinematic Analysis. Your code must guide the robot to successfully complete 8/10 pick and place cycles. Briefly discuss the code you implemented and your results. 
