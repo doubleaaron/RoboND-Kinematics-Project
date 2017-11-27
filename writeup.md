@@ -5,7 +5,7 @@
 [//]: # (Image References)
 
 [image1]: ./misc_images/launch_kuka_urdf.jpg
-[image2]: ./misc_images/misc3.png
+[image2]: ./misc_images/denavit_hartenberg_sketch.jpg
 [image3]: ./misc_images/misc2.png
 
 ---
@@ -21,11 +21,9 @@ Launched /catkin_ws/src/RoboND-Kinematics-Project/kuka_arm/urdf/kr210.urdf.xacro
 
 ![alt text][image1]
 
-We need to sketch out the KUKA Arm in it's zero configuration.
-
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
-The isntructions for DH parameter assignment process for open kinematic chains with n degrees of freedom (i.e., joints) is summarized as:
+The instructions for DH parameter assignment process for open kinematic chains with n degrees of freedom (i.e., joints) is summarized as:
 
 1. Label all joints from {1, 2, … , n}.
 2. Label all links from {0, 1, …, n} starting with the fixed base link as 0.
@@ -44,8 +42,7 @@ to be …
 
 8. For the end effector frame, if joint n is revolute, choose Xn to be in the direction of X​n−1 when θ​n = 0 and the origin of frame {n} such that d​n = 0.
 
-Insert Table Drawn out here:
-
+![alt text][image2]
 
 DH Parameter Table:
 
