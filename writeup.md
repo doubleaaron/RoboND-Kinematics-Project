@@ -86,17 +86,17 @@ theta(i) | Joint variable | Angle from x(i-1) axis to x(i) axis measured along t
                 alpha5: -pi/2, a5:      0, d6:     0, q6:        q6,
                 alpha6:     0, a6:      0, d7: 0.303, q7:         0}
 ```
-
+Put Transformation Matrix into a function
 ```python
 # Define Modified DH Transformation matrix
 	def create_TM(alpha, a, d, q):
-    T = Matrix([[            cos(q),           -sin(q),           0,             a],   
+    	T = Matrix([[            cos(q),           -sin(q),           0,             a],   
                 [ cos(alpha)*sin(q), cos(alpha)*cos(q), -sin(alpha), -sin(alpha)*d],
                 [ sin(alpha)*sin(q), sin(alpha)*cos(q),  cos(alpha),  cos(alpha)*d],
                 [                 0,                 0,           0,             1]])
-    return T
+    	return T
 
-	# Create individual transformation matrices
+# Create individual transformation matrices
 	
 
     T0_1 = create_TM(alpha0, a0, d1, q1).subs(dh_table)
