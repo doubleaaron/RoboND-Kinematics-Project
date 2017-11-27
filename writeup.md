@@ -66,8 +66,11 @@ d(i) | Link offset | Distance from x(i-1) axis to x(i) axis measured along the z
 theta(i) | Joint variable | Angle from x(i-1) axis to x(i) axis measured along the z(i) axis
   
 >>> Alpha(i-1) = Twist Angle
+
 >>> a(i-1) = Distance
+
 >>> d(i) = Link length
+
 >>> theta(i) (Oi in diagram) for joint angles.
 
 >>> In joint 2, there is an offset of -90 degrees between x(1) and x(2).
