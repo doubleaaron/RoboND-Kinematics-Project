@@ -180,6 +180,43 @@ Step 2: Find the location of the WC relative to the base frame.
 
 Step 3: Find joint variables, q1, q2 and q3, such that the WC has coordinates equal to previous equation.
 
+Symbolically define our homogeneous transform:
+```
+[lx  mx  nx  px]
+[ly  my  ny  py]
+[lz  mz  nz  pz]
+[0   0   0   1]
+```
+Where l, m and n are orthonormal vectors representing the end-effector orientation along X, Y, Z axes of the local coordinate frame.
+
+Since n is the vector along the z-axis of the gripper_link, we can say the following:
+```
+wcx = px - (d6 + l) * nx
+wcy = py - (d6 + l) * ny
+wcz = pz - (d6 + l) * nz
+```
+Where l is the end effort length and d6 = 0 (link 6 length).
+
+To calculate nx, ny and nz, rotation matrices are created with error correction.
+
+```
+R_x = Matrix([[   1,      0,       0],
+                          [   0, cos(r), -sin(r)],
+                          [   0, sin(r),  cos(r)]]) #ROLL
+
+            R_y = Matrix([[ cos(p),  0, sin(p)],
+                          [      0,  1,      0],
+                          [-sin(p),  0, cos(p)]]) #PITCH
+
+            R_z = Matrix([[ cos(y), -sin(y),  0],
+                          [ sin(y),  cos(y),  0],
+                          [      0,       0,  1]]) #YAW
+
+            R_G = R_z * R_y * R_x
+            R_corr = R_z.subs(y, pi) * R_y.subs(p, -pi/2)
+            R_G = R_G * R_corr
+```
+
 Step 4: Once the first three joint variables are known, calculate ​0​3​​R via application of homogeneous transforms up to the WC.
 
 Step 5: Find a set of Euler angles corresponding to the rotation matrix.
