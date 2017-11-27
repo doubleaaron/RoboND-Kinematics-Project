@@ -80,8 +80,7 @@ theta(i) | Joint variable | Angle from x(i-1) axis to x(i) axis measured along t
 
 And here's where you can draw out and show your math for the derivation of your theta angles. 
 
-'''python
-
+'''
 # Create Modified DH parameters
 	dh_table = {alpha0:     0, a0:      0, d1:  0.75, q1:        q1,
                 alpha1: -pi/2, a1:   0.35, d2:     0, q2: q2 - pi/2,
@@ -90,7 +89,6 @@ And here's where you can draw out and show your math for the derivation of your 
                 alpha4:  pi/2, a4:      0, d5:     0, q5:        q5,
                 alpha5: -pi/2, a5:      0, d6:     0, q6:        q6,
                 alpha6:     0, a6:      0, d7: 0.303, q7:         0}
-
 '''
 
 ### Project Implementation
