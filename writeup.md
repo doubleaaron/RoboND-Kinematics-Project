@@ -119,7 +119,6 @@ theta(i) | Joint variable | Angle from x(i-1) axis to x(i) axis measured along t
 And here's where you can draw out and show your math for the derivation of your theta angles. 
 
 
-
 ### Project Implementation
 
 #### 1. Fill in the `IK_server.py` file with properly commented python code for calculating Inverse Kinematics based on previously performed Kinematic Analysis. Your code must guide the robot to successfully complete 8/10 pick and place cycles. Briefly discuss the code you implemented and your results. 
