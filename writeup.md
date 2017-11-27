@@ -75,6 +75,13 @@ theta(i) | Joint variable | Angle from x(i-1) axis to x(i) axis measured along t
 
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
+```
+T0-T1
+[cos(q₁)  -sin(q₁)  0   0]
+[sin(q₁)  cos(q₁)   0   0]
+[   0        0      1  0.75]
+[   0        0      0   1]
+```
 
 ```python
 # Create symbols
