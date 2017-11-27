@@ -7,6 +7,7 @@
 [image1]: ./misc_images/launch_kuka_urdf.jpg
 [image2]: ./misc_images/denavit_hartenberg_sketch.jpg
 [image3]: ./misc_images/wc_equation.jpg
+[image4]: ./misc_images/euler_equation.jpg
 
 ---
 
@@ -168,10 +169,19 @@ T0_G = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_G
 
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
+Step 1: Complete the DH Table.
+
+Step 2: Find the location of the WC relative to the base frame.
+
 ![alt text][image3]
 
-And here's where you can draw out and show your math for the derivation of your theta angles. 
+Step 3: Find joint variables, q1, q2 and q3, such that the WC has coordinates equal to previous equation.
 
+Step 4: Once the first three joint variables are known, calculate ​0​3​​R via application of homogeneous transforms up to the WC.
+
+Step 5: Find a set of Euler angles corresponding to the rotation matrix.
+
+![alt text][image4]:
 
 ### Project Implementation
 
