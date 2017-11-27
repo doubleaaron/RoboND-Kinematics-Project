@@ -6,7 +6,7 @@
 
 [image1]: ./misc_images/launch_kuka_urdf.jpg
 [image2]: ./misc_images/denavit_hartenberg_sketch.jpg
-[image3]: ./misc_images/misc2.png
+[image3]: ./misc_images/wc_equation.png
 
 ---
 
@@ -75,11 +75,6 @@ theta(i) | Joint variable | Angle from x(i-1) axis to x(i) axis measured along t
 
 >>> In joint 2, there is an offset of -90 degrees between x(1) and x(2).
 
-
-#### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
-
-And here's where you can draw out and show your math for the derivation of your theta angles. 
-
 ```python
 # Create Modified DH parameters
 	dh_table = {alpha0:     0, a0:      0, d1:  0.75, q1:        q1,
@@ -114,6 +109,15 @@ And here's where you can draw out and show your math for the derivation of your 
 
     T0_G = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_G
 ```
+
+
+#### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
+
+![alt text][image3]
+
+And here's where you can draw out and show your math for the derivation of your theta angles. 
+
+
 
 ### Project Implementation
 
