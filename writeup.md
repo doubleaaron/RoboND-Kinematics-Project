@@ -44,7 +44,7 @@ to be...
 
 8. For the end effector frame, if joint n is revolute, choose Xn to be in the direction of X​n−1 when θ​n = 0 and the origin of frame {n} such that d​n = 0.
 
-![alt text][image2] Sketch
+![alt text][image2]
 
 DH Parameter Table:
 
@@ -65,7 +65,9 @@ a(i-1) | Link length | Distance from z(i-1) axis to z(i) axis measured along the
 d(i) | Link offset | Distance from x(i-1) axis to x(i) axis measured along the z(i) axis
 theta(i) | Joint variable | Angle from x(i-1) axis to x(i) axis measured along the z(i) axis
   
->>> In joint 2, there is an offset of -90 degrees between x(1) and x(2). 
+>>> Alpha(i-1) = Twist Angle :: a(i-1) = Distance :: d(i) = Link length :: theta(i) (Oi in diagram) for joint angles.
+
+>>> In joint 2, there is an offset of -90 degrees between x(1) and x(2).
 
 
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
