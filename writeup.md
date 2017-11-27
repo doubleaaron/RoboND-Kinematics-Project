@@ -195,14 +195,22 @@ wcx = px - (d6 + l) * nx
 wcy = py - (d6 + l) * ny
 wcz = pz - (d6 + l) * nz
 ```
-Where l is the end effort length and d6 = 0 (link 6 length).
+Where,
 
-To calculate nx, ny and nz, rotation matrices are created with error correction.
+Px, Py, Pz = end-effector positions
+
+Wx, Wy, Wz = wrist positions
+
+d6 = from DH table
+
+l = end-effector length
+
+To calculate nx, ny and nz, rotation matrices are created with corrections for the difference between the URDF and the DH reference frames for the end-effector.
 
 ```
-R_x = Matrix([[   1,      0,       0],
+	    R_x = Matrix([[   1,      0,       0],
                           [   0, cos(r), -sin(r)],
-                          [   0, sin(r),  cos(r)]]) #ROLL
+                          [   0, sin(r),  cos(r)]]) #YAW
 
             R_y = Matrix([[ cos(p),  0, sin(p)],
                           [      0,  1,      0],
@@ -210,7 +218,7 @@ R_x = Matrix([[   1,      0,       0],
 
             R_z = Matrix([[ cos(y), -sin(y),  0],
                           [ sin(y),  cos(y),  0],
-                          [      0,       0,  1]]) #YAW
+                          [      0,       0,  1]]) #ROLL
 
             R_G = R_z * R_y * R_x
             R_corr = R_z.subs(y, pi) * R_y.subs(p, -pi/2)
