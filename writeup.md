@@ -12,6 +12,7 @@
 [image6]: ./misc_images/calculate_three_thetas_01.jpg
 [image7]: ./misc_images/calculate_three_thetas.jpg
 [image8]: ./misc_images/three_thetas_xy.jpg
+[image9]: ./misc_images/kuka_arm_9_out_of_10.JPG
 
 ---
 
@@ -292,10 +293,23 @@ R3_6 = R0_3.inv('LU') * R_G
 
 My first two simulation in Gazebo+RViz didn't go so well. The arm came into the picking area way too fast and the gripper didn't open prior to entry in to the zone, resulting in cylinders being knocked over in nearly every attempt.
 
+Occasionally I would get alot of IK solves to the drop off container that wouldn't follow through from RViz to Gazebo that I couldn't figure out besides clicking the Next button too quickly. I gave some time from tha tpoint on and it went smoothly from there on out. 
 
+Changed:
+```
+#From this
+R3_6 = R0_3.inv('LU') * R_G
 
+#To this
+R3_6 = R0_3.transpose() * R_G
+```
+And it sped things up a great deal.
 
-And just for fun, another example image:
-![alt text][image3]
+I did use the pickle methods for R0_3 = T0_3 to gain some more speed.
+
+In the future I would try out numpy instead of sympy for speed. Maybe even taking it to the point of using numba within numpy and CUDA with decorators. I've had some amazing increases in computation speed using that method for deep learning, maybe it could work outside of the VM on an Ubuntu Workstation with nVidia gpus. That would be a super fun experiment in the future.
+
+Voila! Finally got one with a 9/10 after a couple hours of trying.
+![alt text][image9]
 
 
