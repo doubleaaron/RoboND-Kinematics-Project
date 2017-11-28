@@ -174,7 +174,7 @@ T0_G = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_G
 
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
-### Step 1: Complete the DH Table.
+### Step 1: Complete the DH Table. Completed earlier.
 
 ### Step 2: Find the location of the WC relative to the base frame.
 
