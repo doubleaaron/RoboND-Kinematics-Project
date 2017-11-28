@@ -261,7 +261,29 @@ theta3 = -(angle_B - beta)
 
 ### Step 5: Find a set of Euler angles corresponding to the rotation matrix.
 
-![alt text][image4]:
+Where:
+```
+R0_6 = R0_1*R1_2*R2_3*R3_4*R4_5*R5_6
+
+and
+
+R0_6 = Rrpy
+```
+Rrpy = Homogeneous RPY rotation between base_link and gripper_link as calculated above.
+
+We can substitute the values we calculated for joints 1 to 3 in their respective individual rotation matrices and pre-multiply both sides of the above equation by inv(R0_3) which leads to:
+
+R3_6 = inv(R0_3) * Rrpy
+
+Precalculate Thetas 1,2,3. While calculating the inverse above, using Sympy's inv() method, please make sure to pass "LU" as an argument.
+
+```
+R0_3 = T0_3[:3,:3]
+
+R0_3 = R0_3.evalf(subs={q1: theta1, q2: theta2, q3: theta3})
+
+R3_6 = R0_3.inv('LU') * R_G
+```
 
 ### Project Implementation
 
