@@ -238,7 +238,7 @@ ny = Rrpy[1,2]
 nz = Rrpy[2,2]
 
 
-(Extracted from transformation.euler_from_quaternion)
+(from transformation.euler_from_quaternion)
 
 ```
 (roll, pitch, yaw) = tf.transformations.euler_from_quaternion(
@@ -291,11 +291,11 @@ R3_6 = R0_3.inv('LU') * R_G
 #### 1. Fill in the `IK_server.py` file with properly commented python code for calculating Inverse Kinematics based on previously performed Kinematic Analysis. Your code must guide the robot to successfully complete 8/10 pick and place cycles. Briefly discuss the code you implemented and your results. 
 
 
-My first two simulation in Gazebo+RViz didn't go so well. The arm came into the picking area way too fast and the gripper didn't open prior to entry in to the zone, resulting in cylinders being knocked over in nearly every attempt.
+My first two simulations in Gazebo+RViz didn't go so well. The arm came into the picking area way too fast and the gripper didn't open prior to entry in to the zone, resulting in cylinders being knocked over in nearly every attempt. Debugging revealed some silly indents causing variable not to initialize. Then I added R3_6 = R0_3.inv('LU') * R_G from the notes.
 
-Occasionally I would get alot of IK solves to the drop off container that wouldn't follow through from RViz to Gazebo that I couldn't figure out besides clicking the Next button too quickly. I gave some time from tha tpoint on and it went smoothly from there on out. 
+Occasionally I would get alot of IK solves to the drop off container that wouldn't follow through from RViz to Gazebo that I couldn't figure out besides clicking the Next button too quickly. I gave some time from that point on and it went fairly smoothly from there on out. 
 
-Changed:
+Changed (from notes):
 ```
 #From this
 R3_6 = R0_3.inv('LU') * R_G
@@ -305,11 +305,16 @@ R3_6 = R0_3.transpose() * R_G
 ```
 And it sped things up a great deal.
 
-I did use the pickle methods for R0_3 = T0_3 to gain some more speed.
+I tried out some pickle methods to gain some more speed.
+
+Attibutions:
+
+I used the Video Walkthrough whenever I got stuck in the lectures, and it was extremely helpful for getting the symbolic vs code issues I was having sorted out.
 
 In the future I would try out numpy instead of sympy for speed. Maybe even taking it to the point of using numba within numpy and CUDA with decorators. I've had some amazing increases in computation speed using that method for deep learning, maybe it could work outside of the VM on an Ubuntu Workstation with nvidia gpus. That would be a super fun experiment in the future.
 
-Voila! Finally got one with a 9/10 after a couple hours of trying.
+#### Voila! Finally got one with a 9/10 after a couple hours and quite a few failed sessions.
+
 ![alt text][image9]
 
 
