@@ -11,6 +11,7 @@
 [image5]: ./misc_images/wc_homogeneous_matrix.jpg
 [image6]: ./misc_images/calculate_three_thetas_01.jpg
 [image7]: ./misc_images/calculate_three_thetas.jpg
+[image8]: ./misc_images/three_thetas_xy.jpg
 
 ---
 
@@ -230,23 +231,32 @@ To calculate nx, ny and nz, rotation matrices are created with corrections for t
 Extract wrist position:
 
 nx = Rrpy[0,2]
+
 ny = Rrpy[1,2]
+
 nz = Rrpy[2,2]
+
+
+(Extracted from transformation.euler_from_quaternion)
+
+```
+(roll, pitch, yaw) = tf.transformations.euler_from_quaternion(
+                    [req.poses[x].orientation.x, req.poses[x].orientation.y,
+                    req.poses[x].orientation.z, req.poses[x].orientation.w])
+```
 
 
 ### Step 4: Once the first three joint variables are known, calculate ​0​3​​R via application of homogeneous transforms up to the WC.
 ![alt text][image6]:
 
 ![alt text][image7]:
-```
-(roll, pitch, yaw) = tf.transformations.euler_from_quaternion(
-                    [req.poses[x].orientation.x, req.poses[x].orientation.y,
-                    req.poses[x].orientation.z, req.poses[x].orientation.w])
-		    
+
+![alt text][image8]:
+
 theta1 = atan2(WC[1], WC[0])
 theta2 = pi/2 - angle_A - gamma
 theta3 = -(angle_B - beta)
-```
+
 
 ### Step 5: Find a set of Euler angles corresponding to the rotation matrix.
 
