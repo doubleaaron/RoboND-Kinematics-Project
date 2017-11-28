@@ -307,7 +307,7 @@ And it sped things up a great deal.
 
 I did use the pickle methods for R0_3 = T0_3 to gain some more speed.
 
-In the future I would try out numpy instead of sympy for speed. Maybe even taking it to the point of using numba within numpy and CUDA with decorators. I've had some amazing increases in computation speed using that method for deep learning, maybe it could work outside of the VM on an Ubuntu Workstation with nVidia gpus. That would be a super fun experiment in the future.
+In the future I would try out numpy instead of sympy for speed. Maybe even taking it to the point of using numba within numpy and CUDA with decorators. I've had some amazing increases in computation speed using that method for deep learning, maybe it could work outside of the VM on an Ubuntu Workstation with nvidia gpus. That would be a super fun experiment in the future.
 
 Voila! Finally got one with a 9/10 after a couple hours of trying.
 ![alt text][image9]
