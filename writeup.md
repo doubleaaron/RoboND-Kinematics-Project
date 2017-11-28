@@ -235,7 +235,9 @@ nz = Rrpy[2,2]
 
 
 ### Step 4: Once the first three joint variables are known, calculate ​0​3​​R via application of homogeneous transforms up to the WC.
+![alt text][image6]:
 
+![alt text][image7]:
 ```
 (roll, pitch, yaw) = tf.transformations.euler_from_quaternion(
                     [req.poses[x].orientation.x, req.poses[x].orientation.y,
