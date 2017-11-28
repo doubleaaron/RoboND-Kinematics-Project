@@ -290,7 +290,9 @@ R3_6 = R0_3.inv('LU') * R_G
 #### 1. Fill in the `IK_server.py` file with properly commented python code for calculating Inverse Kinematics based on previously performed Kinematic Analysis. Your code must guide the robot to successfully complete 8/10 pick and place cycles. Briefly discuss the code you implemented and your results. 
 
 
-Here I'll talk about the code, what techniques I used, what worked and why, where the implementation might fail and how I might improve it if I were going to pursue this project further.  
+My first two simulation in Gazebo+RViz didn't go so well. The arm came into the picking area way too fast and the gripper didn't open prior to entry in to the zone, resulting in cylinders being knocked over in nearly every attempt.
+
+
 
 
 And just for fun, another example image:
