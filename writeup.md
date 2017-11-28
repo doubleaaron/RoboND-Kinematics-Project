@@ -126,7 +126,7 @@ T6 or Gripper
 
 T0_G = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_G
 ```
-### Python, Sympy, Defining Functions, etc.
+#### Python, Sympy, Defining Functions, etc.
 ```python
 # Create symbols
     q1, q2, q3, q4, q5, q6, q7 = symbols('q1:8') #joint variables, thetas
@@ -172,17 +172,17 @@ T0_G = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_G
 ```
 
 
-#### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
+### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
-### Step 1: Complete the DH Table. Completed earlier.
+#### Step 1: Complete the DH Table. Completed earlier.
 
-### Step 2: Find the location of the WC relative to the base frame.
+#### Step 2: Find the location of the WC relative to the base frame.
 
 ![alt text][image5]:
 
 ![alt text][image3]
 
-### Step 3: Find joint variables, q1, q2 and q3, such that the WC has coordinates equal to previous equation.
+#### Step 3: Find joint variables, q1, q2 and q3, such that the WC has coordinates equal to previous equation.
 
 Symbolically define our homogeneous transform:
 ```
@@ -247,7 +247,7 @@ nz = Rrpy[2,2]
 ```
 
 
-### Step 4: Once the first three joint variables are known, calculate ​0​3​​R via application of homogeneous transforms up to the WC.
+#### Step 4: Once the first three joint variables are known, calculate ​0​3​​R via application of homogeneous transforms up to the WC.
 ![alt text][image6]:
 
 ![alt text][image7]:
@@ -260,7 +260,7 @@ theta2 = pi/2 - angle_A - gamma
 theta3 = -(angle_B - beta)
 ```
 
-### Step 5: Find a set of Euler angles corresponding to the rotation matrix.
+#### Step 5: Find a set of Euler angles corresponding to the rotation matrix.
 
 Where:
 ```
