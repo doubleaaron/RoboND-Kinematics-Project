@@ -253,10 +253,11 @@ nz = Rrpy[2,2]
 
 ![alt text][image8]:
 
+```
 theta1 = atan2(WC[1], WC[0])
 theta2 = pi/2 - angle_A - gamma
 theta3 = -(angle_B - beta)
-
+```
 
 ### Step 5: Find a set of Euler angles corresponding to the rotation matrix.
 
