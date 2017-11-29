@@ -170,7 +170,11 @@ T0_G = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_G
 
     T0_G = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_G
 ```
-
+OR
+```
+T0_3 = T0_1 * T1_2 * T2_3
+T0_G = T0_3 * T3_4 * T4_5 * T5_6 * T6_G
+```
 
 ### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
@@ -182,7 +186,7 @@ T0_G = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_G
 
 ![alt text][image3]
 
-#### Step 3: Find joint variables, q1, q2 and q3, such that the WC has coordinates equal to previous equation.
+#### Step 3: Find joint angles(variables) q1, q2 and q3, such that the WC has coordinates equal to previous equation.
 
 Symbolically define our homogeneous transform:
 ```
@@ -254,10 +258,16 @@ nz = Rrpy[2,2]
 
 ![alt text][image8]:
 
+Theta 4,5,6 are derived from R3_6 using Euler Angles from Rotation Matrix.
+
 ```
 theta1 = atan2(WC[1], WC[0])
 theta2 = pi/2 - angle_A - gamma
 theta3 = -(angle_B - beta)
+
+theta4 = atan2(-R[2,2], R[0,2])
+theta5 = atan2(sqrt(R[0,2]**2 + R[2,2]**2), R[1,2])
+theta6 = atan2(R[1,1], -R[1,0])
 ```
 
 #### Step 5: Find a set of Euler angles corresponding to the rotation matrix.
@@ -291,9 +301,13 @@ R3_6 = R0_3.inv('LU') * R_G
 #### 1. Fill in the `IK_server.py` file with properly commented python code for calculating Inverse Kinematics based on previously performed Kinematic Analysis. Your code must guide the robot to successfully complete 8/10 pick and place cycles. Briefly discuss the code you implemented and your results. 
 
 
-My first two simulations in Gazebo+RViz didn't go so well. The arm came into the picking area way too fast and the gripper didn't open prior to entry in to the zone, resulting in cylinders being knocked over in nearly every attempt. Debugging revealed some silly indents causing variable not to initialize. Then I added R3_6 = R0_3.inv('LU') * R_G from the notes.
+My first two simulations in Gazebo+RViz didn't go so well. The arm came into the picking area way too fast and the gripper didn't open prior to entry in to the zone, resulting in cylinders being knocked over in nearly every attempt. Debugging revealed some silly indents causing variable not to initialize. From Common Questions section I inserted the following code in line 327 in the /src/trajectory_sampler.cpp file:
 
-Occasionally I would get alot of IK solves to the drop off container that wouldn't follow through from RViz to Gazebo that I couldn't figure out besides clicking the Next button too quickly. I gave some time from that point on and it went fairly smoothly from there on out. 
+```ros::Duration(2.0).sleep();
+```
+I then I added R3_6 = R0_3.inv('LU') * R_G from the notes.
+
+Occasionally I would get alot of IK solves to the drop off container that wouldn't follow through from RViz to Gazebo that I couldn't figure out besides clicking the Next button too quickly. I gave some time from that point on and it went fairly smoothly from there on out.
 
 Changed (from notes):
 ```
