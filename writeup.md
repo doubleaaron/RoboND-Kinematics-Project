@@ -258,17 +258,6 @@ nz = Rrpy[2,2]
 
 ![alt text][image8]:
 
-Theta 4,5,6 are derived from R3_6 using Euler Angles from Rotation Matrix.
-
-```
-theta1 = atan2(WC[1], WC[0])
-theta2 = pi/2 - angle_A - gamma
-theta3 = -(angle_B - beta)
-
-theta4 = atan2(-R[2,2], R[0,2])
-theta5 = atan2(sqrt(R[0,2]**2 + R[2,2]**2), R[1,2])
-theta6 = atan2(R[1,1], -R[1,0])
-```
 
 #### Step 5: Find a set of Euler angles corresponding to the rotation matrix.
 
@@ -294,6 +283,26 @@ R0_3 = T0_3[:3,:3]
 R0_3 = R0_3.evalf(subs={q1: theta1, q2: theta2, q3: theta3})
 
 R3_6 = R0_3.inv('LU') * R_G
+```
+
+Theta 4,5,6 are derived from R3_6 using Euler Angles from Rotation Matrix.
+
+theta4 = atan2(r36[2, 2], -r36[0, 2])
+theta5 = atan2(sqrt(r36[0, 2]^2 + r36[2, 2]^2), r36[1, 2])
+theta6 = atan2(-r36[1, 1], r36[1, 0])
+
+CODE:
+```
+gamma = atan2(WC[2] - d1, sqrt(WC[0]**2 + WC[1]**2) - a1)
+beta = atan2(d4, -a3)
+
+theta1 = atan2(WC[1], WC[0])
+theta2 = pi/2 - angle_A - gamma
+theta3 = -(angle_B - beta)
+
+theta4 = atan2(-R[2,2], R[0,2])
+theta5 = atan2(sqrt(R[0,2]**2 + R[2,2]**2), R[1,2])
+theta6 = atan2(R[1,1], -R[1,0])
 ```
 
 ### Project Implementation
@@ -323,7 +332,7 @@ I tried out some pickle methods to gain some more speed.
 
 Attibutions:
 
-I used the Video Walkthrough whenever I got stuck in the lectures, and it was extremely helpful for getting the symbolic vs code issues I was having sorted out.
+I used the Video Walkthrough whenever I got stuck in the lectures, and it was extremely helpful for getting the symbolic vs code issues I was having sorted out. Harsh's code really helped me link up the concept of Symbolic Code. I feel like I could easily forget all of this if I didn't do it every day, so will need to refresh it quite a bit going into the future. It's alot of information and concepts. Maybe a game engine programmer feels like they are good at this?
 
 In the future I would try out numpy instead of sympy for speed. Maybe even taking it to the point of using numba within numpy and CUDA with decorators. I've had some amazing increases in computation speed using that method for deep learning, maybe it could work outside of the VM on an Ubuntu Workstation with nvidia gpus. That would be a super fun experiment in the future.
 
