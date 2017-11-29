@@ -287,9 +287,11 @@ R3_6 = R0_3.inv('LU') * R_G
 
 Theta 4,5,6 are derived from R3_6 using Euler Angles from Rotation Matrix.
 
+```
 theta4 = atan2(r36[2, 2], -r36[0, 2])
 theta5 = atan2(sqrt(r36[0, 2]^2 + r36[2, 2]^2), r36[1, 2])
 theta6 = atan2(-r36[1, 1], r36[1, 0])
+```
 
 CODE:
 ```
